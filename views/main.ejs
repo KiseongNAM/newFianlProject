@@ -1,0 +1,133 @@
+<%- include('header')%>
+
+<header class="header-container" onclick="Javascript:location.href='/'">
+  <img src="header.png" alt="백경이" />
+  <h1 id="header-title">백경이네 기념일 계산기</h1>
+</header>
+<main class="main-container">
+  <section class="main-calc-date">
+    <div class="main-calc-container bg-success bg-opacity-50">
+      <div class="select-date">
+        <h3>우리 만난지... &#128153;</h3>
+        <form class="select-date-container">
+          <input
+            type="date"
+            name="start-date"
+            id="start-date"
+            class="form-control"
+            required
+          />
+          <input
+            class="btn btn-success"
+            type="button"
+            value="선택"
+            onclick="getFirstDay();calcDate(100);calcDate(365);dateStamp()"
+          />
+        </form>
+        <p id="accent" class="accent">
+          <span style="font-size: 0.6em; font-style: italic">며칠?</span>
+        </p>
+      </div>
+
+      <div class="calc-date">
+        <h3>기념일 계산</h3>
+        <div class="input-date form-floating">
+          <input
+            class="item-title input-calc-date form-control"
+            id="floatingInput"
+            name="input-calc-date"
+            type="text"
+            placeholder="계산할 일수"
+            onkeyup="calcInputDate()"
+          />
+          <label for="floatingInput">계산할 일수</label>
+          <p id="calc-date-text" class="item-date">&#128140;</p>
+        </div>
+        <ul>
+          <li class="item-title">100일</li>
+          <li class="item-date" id="date100">&#128140;</li>
+        </ul>
+
+        <ul>
+          <li class="item-title">1년</li>
+          <li class="item-date" id="date365">&#128140;</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <hr />
+  <section class="content-list">
+    <h1>기념일 저장</h1>
+    <ul class="bg-info bg-opacity-50">
+      <% for (comment of comments) { %>
+      <div class="main-list-container">
+        <li>별명 : <%= comment.nickname %></li>
+        <li>기념일명 : <%= comment.content %></li>
+        <li>기념일 : <%= comment.datestamp %></li>
+        <hr />
+        <li>저장 시간 : <%= comment.createdAt %></li>
+        <li>수정 시간 : <%= comment.updatedAt %></li>
+        <div class="main-form-container">
+          <form class="update" action="/update/<%= comment.id %>" method="post">
+            <div class="form-floating mb-3">
+              <input
+                class="form-control update-content"
+                id="floatingInput"
+                type="text"
+                name="content"
+                placeholder="수정할 기념일명"
+              />
+              <label for="floatingInput">수정할 기념일명</label>
+              <input class="btn btn-warning" type="submit" value="수정하기" />
+            </div>
+          </form>
+          <form class="delete" action="/delete/<%= comment.id %>" method="post">
+            <input class="btn btn-danger" type="submit" value="삭제하기" />
+          </form>
+        </div>
+      </div>
+      <% } %>
+    </ul>
+  </section>
+  <hr />
+  <section class="main-create-container">
+    <form class="main-create-form-container" action="/create" method="post">
+      <div id="nickname-create" class="create-form form-floating mb-3">
+        <input
+          type="text"
+          class="form-control celeb-date-text"
+          id="floatingInput"
+          name="datestamp"
+          placeholder="기념일"
+          required
+        />
+        <label for="floatingInput">기념일</label>
+      </div>
+      <div id="nickname-create" class="create-form form-floating mb-3">
+        <input
+          type="text"
+          class="form-control"
+          id="floatingInput"
+          name="nickname"
+          placeholder="별명을 입력하세요"
+          required
+        />
+        <label for="floatingInput">별명</label>
+      </div>
+      <div id="content-create" class="form-floating">
+        <input
+          type="text"
+          name="content"
+          class="form-control"
+          id="floatingInput"
+          placeholder="기념일명을 입력하세요"
+          required
+        />
+        <label for="floatingInput">기념일명</label>
+      </div>
+      <input class="btn btn-outline-primary" type="submit" value="글쓰기" />
+    </form>
+  </section>
+</main>
+
+<%- include('footer')%>
