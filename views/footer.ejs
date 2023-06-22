@@ -32,17 +32,6 @@
     document.querySelector("#date" + day).innerText = `${year}년 ${month}월 ${date}일 ${dayString}요일`;
   }
 
-  function dateStamp() {
-    if(document.querySelector("#start-date").value==""){return}
-    const firstDay = new Date(document.querySelector("#start-date").value);
-    const year = firstDay.getFullYear()
-    const month = firstDay.getMonth()+1
-    const date = firstDay.getDate()
-    const day = calcDayString(firstDay.getDay())   
-    
-    document.querySelector(".celeb-date-text").value = `${year}년 ${month}월 ${date}일 ${day}요일`
-  }
-
   function calcDayString(day) {
     switch(day){
       case 0: return "월" 
@@ -69,5 +58,41 @@
     document.querySelector("#calc-date-text").innerText = `${year}년 ${month}월 ${date}일 ${dayString}요일`;
   }
 
+  function checkboxGroup(currentCheckbox) {
+    let listCheckBoxes = [];
+    for(let i=1;i<7;i++){
+      listCheckBoxes.push(document.querySelector(".form-check".concat(i)))
+    }
+    let checkedCount = 0;
+    
+    let listCheckBoxesLabel = [];
+    for(let i=1;i<7;i++){
+      listCheckBoxesLabel.push(document.querySelector(".check-label".concat(i)))
+    }
+
+    for (let i = 0; i < listCheckBoxes.length; i++) {
+      if (listCheckBoxes[i].checked) {
+        checkedCount++;
+        let firstDayString = listCheckBoxesLabel[i].innerHTML;
+        document.querySelector(".celeb-date-text").value = firstDayString
+        if (listCheckBoxes[i] !== currentCheckbox) {
+          listCheckBoxes[i].checked = false;
+        }
+      }
+    }
+    
+    if (checkedCount === 0) {
+      currentCheckbox.checked = true;
+    }
+}
+
+  function allOnClick(){
+    getFirstDay();
+    calcDate(100);
+    calcDate(200);
+    calcDate(365);
+    calcDate(1095);
+    calcDate(1825);
+  }
 </script>
 </html>

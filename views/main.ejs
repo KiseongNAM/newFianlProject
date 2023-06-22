@@ -21,7 +21,7 @@
             class="btn btn-success"
             type="button"
             value="선택"
-            onclick="getFirstDay();calcDate(100);calcDate(365);dateStamp()"
+            onclick="allOnClick()"
           />
         </form>
         <p id="accent" class="accent">
@@ -41,34 +41,161 @@
             onkeyup="calcInputDate()"
           />
           <label for="floatingInput">계산할 일수</label>
-          <p id="calc-date-text" class="item-date">&#128140;</p>
+          <div class="form-check">
+            <input
+              class="form-check-input item-title form-check1"
+              type="checkbox"
+              name="flexCheckDefault"
+              id="flexCheckDefault1"
+              onchange="checkboxGroup(this)"
+            />
+            <label
+              class="form-check-label item-date check-label1"
+              id="calc-date-text"
+              for="flexCheckDefault1"
+            >
+              &#128140;
+            </label>
+          </div>
         </div>
-        <ul>
-          <li class="item-title">100일</li>
-          <li class="item-date" id="date100">&#128140;</li>
-        </ul>
 
-        <ul>
-          <li class="item-title">1년</li>
-          <li class="item-date" id="date365">&#128140;</li>
-        </ul>
+        <div class="item-form-container">
+          <ul>
+            <li class="item-title">100일</li>
+          </ul>
+          <div class="form-check">
+            <input
+              class="form-check-input item-title form-check2"
+              type="checkbox"
+              name="flexCheckDefault"
+              id="flexCheckDefault1"
+              onchange="checkboxGroup(this)"
+            />
+            <label
+              class="form-check-label item-date check-label2"
+              id="date100"
+              for="flexCheckDefault1"
+            >
+              &#128140;
+            </label>
+          </div>
+        </div>
+
+        <div class="item-form-container">
+          <ul>
+            <li class="item-title">200일</li>
+          </ul>
+          <div class="form-check">
+            <input
+              class="form-check-input item-title form-check3"
+              type="checkbox"
+              name="flexCheckDefault"
+              id="flexCheckDefault1"
+              onchange="checkboxGroup(this)"
+            />
+            <label
+              class="form-check-label item-date check-label3"
+              id="date200"
+              for="flexCheckDefault1"
+            >
+              &#128140;
+            </label>
+          </div>
+        </div>
+
+        <div class="item-form-container">
+          <ul>
+            <li class="item-title">1년</li>
+          </ul>
+          <div class="form-check">
+            <input
+              class="form-check-input item-title form-check4"
+              type="checkbox"
+              name="flexCheckDefault"
+              id="flexCheckDefault1"
+              onchange="checkboxGroup(this)"
+            />
+            <label
+              class="form-check-label item-date check-label4"
+              id="date365"
+              for="flexCheckDefault1"
+            >
+              &#128140;
+            </label>
+          </div>
+        </div>
+
+        <div class="item-form-container">
+          <ul>
+            <li class="item-title">3년</li>
+          </ul>
+          <div class="form-check">
+            <input
+              class="form-check-input item-title form-check5"
+              type="checkbox"
+              name="flexCheckDefault"
+              id="flexCheckDefault1"
+              onchange="checkboxGroup(this)"
+            />
+            <label
+              class="form-check-label item-date check-label5"
+              id="date1095"
+              for="flexCheckDefault1"
+            >
+              &#128140;
+            </label>
+          </div>
+        </div>
+
+        <div class="item-form-container">
+          <ul>
+            <li class="item-title">5년</li>
+          </ul>
+          <div class="form-check">
+            <input
+              class="form-check-input item-title form-check6"
+              type="checkbox"
+              name="flexCheckDefault"
+              id="flexCheckDefault1"
+              onchange="checkboxGroup(this)"
+            />
+            <label
+              class="form-check-label item-date check-label6"
+              id="date1825"
+              for="flexCheckDefault1"
+            >
+              &#128140;
+            </label>
+          </div>
+        </div>
       </div>
     </div>
   </section>
   <hr />
+
   <section class="content-list">
     <h1>기념일 저장</h1>
     <ul class="bg-info bg-opacity-50">
       <% for (comment of comments) { %>
       <div class="main-list-container">
         <li>별명 : <%= comment.nickname %></li>
-        <li>기념일명 : <%= comment.content %></li>
         <li>기념일 : <%= comment.datestamp %></li>
-        <hr />
+        <li>기념일명 : <%= comment.content %></li>
+        <!-- <hr /> -->
         <li>저장 시간 : <%= comment.createdAt %></li>
         <li>수정 시간 : <%= comment.updatedAt %></li>
         <div class="main-form-container">
           <form class="update" action="/update/<%= comment.id %>" method="post">
+            <div class="form-floating mb-3">
+              <input
+                class="form-control update-datestamp"
+                id="floatingInput"
+                type="text"
+                name="datestamp"
+                placeholder="수정할 기념일"
+              />
+              <label for="floatingInput">수정할 기념일(날짜)</label>
+            </div>
             <div class="form-floating mb-3">
               <input
                 class="form-control update-content"
@@ -78,10 +205,30 @@
                 placeholder="수정할 기념일명"
               />
               <label for="floatingInput">수정할 기념일명</label>
-              <input class="btn btn-warning" type="submit" value="수정하기" />
             </div>
+            <div class="form-floating mb-3">
+              <input
+                class="form-control update-content"
+                id="floatingInput"
+                type="password"
+                name="password"
+                placeholder="비밀번호"
+              />
+              <label for="floatingInput">비밀번호</label>
+            </div>
+            <input class="btn btn-warning" type="submit" value="수정하기" />
           </form>
           <form class="delete" action="/delete/<%= comment.id %>" method="post">
+            <div class="form-floating mb-3">
+              <input
+                class="form-control update-content"
+                id="floatingInput"
+                type="password"
+                name="password"
+                placeholder="비밀번호"
+              />
+              <label for="floatingInput">비밀번호</label>
+            </div>
             <input class="btn btn-danger" type="submit" value="삭제하기" />
           </form>
         </div>
@@ -90,6 +237,7 @@
     </ul>
   </section>
   <hr />
+
   <section class="main-create-container">
     <form class="main-create-form-container" action="/create" method="post">
       <div id="nickname-create" class="create-form form-floating mb-3">
@@ -98,33 +246,48 @@
           class="form-control celeb-date-text"
           id="floatingInput"
           name="datestamp"
-          placeholder="기념일"
+          placeholder="기념일(날짜)"
           required
         />
-        <label for="floatingInput">기념일</label>
+        <label for="floatingInput">기념일(날짜)</label>
       </div>
+
       <div id="nickname-create" class="create-form form-floating mb-3">
         <input
           type="text"
           class="form-control"
           id="floatingInput"
           name="nickname"
-          placeholder="별명을 입력하세요"
+          placeholder="별명"
           required
         />
         <label for="floatingInput">별명</label>
       </div>
+
       <div id="content-create" class="form-floating">
         <input
           type="text"
           name="content"
-          class="form-control"
+          class="form-control create-input-celeb"
           id="floatingInput"
-          placeholder="기념일명을 입력하세요"
+          placeholder="기념일명"
           required
         />
         <label for="floatingInput">기념일명</label>
       </div>
+
+      <div id="content-create" class="form-floating">
+        <input
+          type="password"
+          name="password"
+          class="form-control create-input-celeb"
+          id="floatingInput"
+          placeholder="비밀번호"
+          required
+        />
+        <label for="floatingInput">비밀번호</label>
+      </div>
+
       <input class="btn btn-outline-primary" type="submit" value="글쓰기" />
     </form>
   </section>

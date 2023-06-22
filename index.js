@@ -25,10 +25,10 @@ const Commnets = sequelize.define(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    // password: {
-    //   type: DataTypes.STRING,
-    //   allowNull: false,
-    // },
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
   },
   {
     // Other model options go here
@@ -54,23 +54,25 @@ app.get("/", async function (req, res) {
 
 app.post("/create", async function (req, res) {
   console.log(req.body);
-  const { content, nickname, datestamp } = req.body;
+  const { content, nickname, datestamp, password } = req.body;
   await Commnets.create({
     content: content,
     nickname: nickname,
     datestamp: datestamp,
+    password: password,
   });
   res.redirect("/");
 });
 
 app.post("/update/:id", async function (req, res) {
-  const { content } = req.body;
+  const { content, datestamp, password } = req.body;
   const { id } = req.params;
   await Commnets.update(
-    { content: content },
+    { content: content, datestamp: datestamp },
     {
       where: {
         id: id,
+        password: password,
       },
     }
   );
@@ -79,10 +81,12 @@ app.post("/update/:id", async function (req, res) {
 });
 
 app.post("/delete/:id", async function (req, res) {
+  const { password } = req.body;
   const { id } = req.params;
   await Commnets.destroy({
     where: {
       id: id,
+      password: password,
     },
   });
   res.redirect("/");
