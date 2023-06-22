@@ -16,7 +16,6 @@
 body,
 html {
   width: 100%;
-  height: 100%;
 }
 
 h1,
@@ -43,6 +42,9 @@ footer {
 }
 
 .header-container {
+  position: sticky;
+  top: 0;
+  z-index: 100;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -69,8 +71,8 @@ footer {
 }
 
 .header-container img {
-  width: 5vw;
-  height: 6vh;
+  width: 53.9px;
+  height: 79.7px;
   margin-right: 20px;
 }
 
@@ -85,11 +87,11 @@ footer {
 
 #start-date {
   height: calc(3rem);
-  width: 20vw;
+  width: 33vw;
   border: none;
   border-radius: 5px;
   text-align: center;
-  margin-right: 10px;
+  margin-right: 15px;
   padding-left: 10px;
   padding-right: 10px;
 }
@@ -99,7 +101,7 @@ footer {
 }
 
 .main-calc-container {
-  width: 50vw;
+  width: 65vw;
   padding-top: 10px;
   padding-bottom: 10px;
   display: flex;
@@ -121,7 +123,7 @@ footer {
 .calc-date ul {
   border-top: 3px solid rgba(3, 110, 74, 0.5);
   border-radius: 3px;
-  width: 30vw;
+  width: 40vw;
 }
 
 ul > .item-title {
@@ -131,7 +133,7 @@ ul > .item-title {
 .main-list-container {
   display: flex;
   flex-direction: column;
-  width: 63vw;
+  width: 75vw;
   background-color: rgba(255, 255, 255, 0.5);
   border-radius: 5px;
   padding: 10px;
@@ -179,6 +181,14 @@ ul > .item-title {
   justify-content: center;
 }
 
+.item-form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
 .item-form-container > .form-check {
   display: flex;
   justify-content: center;
@@ -189,11 +199,9 @@ ul > .item-title {
 }
 
 .content-list ul {
-  width: 70vw;
+  width: 85vw;
   border: 2px solid blue;
   border-radius: 5px;
-  padding-left: 20px;
-  padding-right: 20px;
 }
 
 .content-list li {
@@ -201,35 +209,23 @@ ul > .item-title {
   margin-right: 10px;
 }
 
-.main-create-container #celeb-date {
-  width: 620px;
-  height: 50px;
-  margin-bottom: 15px;
+#create-submit {
+  display: flex;
+  align-items: center;
 }
 
 .main-form-container {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   margin-top: 15px;
 }
 
-.main-form-container form {
-  margin-right: 10px;
-}
-
-.main-form-container .form-floating {
-  display: flex;
-  align-items: center;
-}
-
-.main-form-container .delete {
+.main-form-container .delete,
+.main-form-container .update {
   margin-bottom: 16px;
-}
-
-.update-content {
-  margin-right: 10px;
+  text-align: center;
 }
 
 input::placeholder {
@@ -238,19 +234,17 @@ input::placeholder {
 }
 
 input[name="content"],
-input[name="nickname"] {
+input[name="nickname"],
+input[name="datestamp"],
+input[name="password"] {
   height: 5vh;
-  width: 25vw;
+  width: 33vw;
   padding-bottom: 5px;
   padding-left: 5px;
 }
 input[name="input-calc-date"] {
-  width: 35vw;
+  width: 40vw;
   margin-bottom: 10px;
-}
-
-input[name="datestamp"] {
-  width: 25vw;
 }
 
 input[name="datestamp"] {
@@ -274,7 +268,9 @@ input[name="datestamp"] {
 }
 
 #nickname-create,
-#content-create {
+#content-create,
+#celeb-create,
+#password-create {
   margin-right: 10px;
 }
 
@@ -286,7 +282,7 @@ footer {
   text-align: center;
 }
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   .input-calc-date {
     width: 30vw;
   }
@@ -306,4 +302,4 @@ footer {
     margin-top: 10px;
     width: 50vw;
   }
-}
+} */
