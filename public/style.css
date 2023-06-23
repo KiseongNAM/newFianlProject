@@ -343,3 +343,10 @@ footer {
     }
   }
 }
+
+@media (max-width: 414px) {
+  #nav-link3 {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+}
