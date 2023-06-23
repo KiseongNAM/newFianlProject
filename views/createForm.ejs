@@ -1,0 +1,57 @@
+<section class="main-create-container">
+  <form class="main-create-form-container" action="/create" method="post">
+    <div class="main-create-input-container1">
+      <div id="celeb-date-create" class="create-form form-floating mb-3">
+        <input
+          type="text"
+          class="form-control celeb-date-text"
+          id="floatingInput"
+          name="datestamp"
+          placeholder="기념일(날짜)"
+          required
+        />
+        <label for="floatingInput">기념일(날짜)</label>
+      </div>
+
+      <div id="nickname-create" class="create-form form-floating mb-3">
+        <input
+          type="text"
+          class="form-control"
+          id="floatingInput"
+          name="nickname"
+          placeholder="별명"
+          required
+        />
+        <label for="floatingInput">별명</label>
+      </div>
+    </div>
+    <div class="main-create-input-container2">
+      <div id="celeb-create" class="create-form form-floating mb-3">
+        <input
+          type="text"
+          name="content"
+          class="form-control create-input-celeb"
+          id="floatingInput"
+          placeholder="기념일명"
+          required
+        />
+        <label for="floatingInput">기념일명</label>
+      </div>
+
+      <div id="password-create" class="create-form form-floating mb-3">
+        <input
+          type="password"
+          name="password"
+          class="form-control create-input-celeb"
+          id="floatingInput"
+          placeholder="비밀번호"
+          required
+        />
+        <label for="floatingInput">비밀번호</label>
+      </div>
+    </div>
+    <div id="create-submit">
+      <input class="btn btn-outline-primary" type="submit" value="글쓰기" />
+    </div>
+  </form>
+</section>

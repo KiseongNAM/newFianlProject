@@ -1,98 +1,11 @@
-<footer>
-    백경이네 2023 all right reserved.
-</footer>
-</body>
-<script
-  src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-  integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-  crossorigin="anonymous"
-></script>
-<script>
-  function getFirstDay() {
-    if(document.querySelector("#start-date").value==""){alert("날짜를 선택해주세요!");return}
-    const firstDay = new Date(document.querySelector("#start-date").value);
-    const now = new Date();    
-    const toNow = now.getTime(); //getTime() 함수는 밀리초를 반환한다.
-    const toFirst = firstDay.getTime();
-    const passedTime = toNow - toFirst;
-    const passedDay = Math.round(passedTime / (1000 * 60 * 60 * 24)); //밀리초를 날짜로 바꾸고 반올림
-    document.querySelector("#accent").innerText = `${passedDay}일`;    
-  }
-  //중복되는 코드가 많으므로 100일,365일을 매개변수로 둔 함수를 만든것
-  function calcDate(day) {
-    if(document.querySelector("#start-date").value==""){return}
-    const firstDay = new Date(document.querySelector("#start-date").value);
-    const toFirst = firstDay.getTime();
-    const future = toFirst + day * (1000 * 60 * 60 * 24); 
-    const someday = new Date(future);
-    const year = someday.getFullYear();
-    const month = someday.getMonth() + 1; //월은 +1을 해줘야 정확한 일수가 나온다.
-    const date = someday.getDate();
-    const dayString = calcDayString(someday.getDay())
-    document.querySelector("#date" + day).innerText = `${year}년 ${month}월 ${date}일 ${dayString}요일`;
-  }
-
-  function calcDayString(day) {
-    switch(day){
-      case 0: return "월" 
-      case 1: return "화" 
-      case 2: return "수"
-      case 3: return "목" 
-      case 4: return "금" 
-      case 5: return "토" 
-      case 6: return "일" 
-      }   
-  }
-
-  function calcInputDate() {
-    if(document.querySelector("#start-date").value==""){return}
-    const firstDay = new Date(document.querySelector("#start-date").value);
-    const toFirst = firstDay.getTime();
-    const day = document.querySelector(".input-calc-date").value;
-    const future = toFirst + day * (1000 * 60 * 60 * 24); 
-    const someday = new Date(future);
-    const year = someday.getFullYear();
-    const month = someday.getMonth() + 1; //월은 +1을 해줘야 정확한 일수가 나온다.
-    const date = someday.getDate();
-    const dayString = calcDayString(someday.getDay())
-    document.querySelector("#calc-date-text").innerText = `${year}년 ${month}월 ${date}일 ${dayString}요일`;
-  }
-
-  function checkboxGroup(currentCheckbox) {
-    let listCheckBoxes = [];
-    for(let i=1;i<7;i++){
-      listCheckBoxes.push(document.querySelector(".form-check".concat(i)))
-    }
-    let checkedCount = 0;
-    
-    let listCheckBoxesLabel = [];
-    for(let i=1;i<7;i++){
-      listCheckBoxesLabel.push(document.querySelector(".check-label".concat(i)))
-    }
-
-    for (let i = 0; i < listCheckBoxes.length; i++) {
-      if (listCheckBoxes[i].checked) {
-        checkedCount++;
-        let firstDayString = listCheckBoxesLabel[i].innerHTML;
-        document.querySelector(".celeb-date-text").value = firstDayString
-        if (listCheckBoxes[i] !== currentCheckbox) {
-          listCheckBoxes[i].checked = false;
-        }
-      }
-    }
-    
-    if (checkedCount === 0) {
-      currentCheckbox.checked = true;
-    }
-}
-
-  function allOnClick(){
-    getFirstDay();
-    calcDate(100);
-    calcDate(200);
-    calcDate(365);
-    calcDate(1095);
-    calcDate(1825);
-  }
-</script>
+    <footer>
+        Copyright 2023. 백경이네. All rights reserved.
+    </footer>
+  </body>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"
+  ></script>
+  <script type="text/Javascript" src="./script.js"></script>
 </html>

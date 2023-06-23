@@ -1,0 +1,58 @@
+<section class="main-calc-date">
+  <div class="main-calc-container bg-success bg-opacity-50">
+    <div class="select-date">
+      <h3>지금 남은 날은 &#128198;</h3>
+      <form class="select-date-container">
+        <input
+          type="date"
+          name="start-date"
+          id="start-date"
+          class="form-control dday"
+          required
+        />
+        <input
+          class="btn btn-success"
+          type="button"
+          value="선택"
+          onclick="allOnClick('.dday')"
+        />
+      </form>
+      <p id="accent" class="accent dday-accent">
+        <span>&#128140;</span>
+      </p>
+    </div>
+
+    <div class="calc-date">
+      <h3>디데이 계산</h3>
+      <h5>선택한 날로부터</h5>
+      <div class="input-date form-floating">
+        <input
+          class="item-title input-calc-date2 form-control"
+          id="floatingInput"
+          name="input-calc-date"
+          type="text"
+          placeholder="계산할 일수"
+          onkeyup="calcInputDate('.dday','.input-calc-date',2)"
+        />
+        <label for="floatingInput">계산할 일수</label>
+        <div class="form-check">
+          <input
+            class="form-check-input item-title dday-form-check1"
+            type="checkbox"
+            name="flexCheckDefault"
+            id="flexCheckDefault1"
+            onchange="checkboxGroup(this)"
+            onclick="checkClick(this)"
+          />
+          <label
+            class="form-check-label item-date dday-check-label1"
+            id="calc-date-text2"
+            for="flexCheckDefault1"
+          >
+            &#128140;
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

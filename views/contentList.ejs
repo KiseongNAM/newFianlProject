@@ -1,0 +1,68 @@
+<section class="content-list">
+  <h1>기념일 저장</h1>
+  <ul class="bg-info bg-opacity-50">
+    <% for (comment of comments) { %>
+    <div class="main-list-container">
+      <li>별명 : <%= comment.nickname %></li>
+      <li>기념일 : <%= comment.datestamp %></li>
+      <li>기념일명 : <%= comment.content %></li>
+      <li>저장 시간 : <%= comment.createdAt %></li>
+      <li>수정 시간 : <%= comment.updatedAt %></li>
+      <div class="main-form-container">
+        <form class="update" action="/update/<%= comment.id %>" method="post">
+          <div class="form-floating mb-3">
+            <input
+              class="form-control update-datestamp"
+              id="floatingInput"
+              type="text"
+              name="datestamp"
+              placeholder="수정할 기념일"
+              required
+            />
+            <label for="floatingInput">수정할 기념일(날짜)</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input
+              class="form-control update-content"
+              id="floatingInput"
+              type="text"
+              name="content"
+              placeholder="수정할 기념일명"
+              required
+            />
+            <label for="floatingInput">수정할 기념일명</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input
+              class="form-control update-content"
+              id="floatingInput"
+              type="password"
+              name="password"
+              placeholder="비밀번호"
+              required
+            />
+            <label for="floatingInput">비밀번호</label>
+          </div>
+          <div class="update">
+            <input class="btn btn-warning" type="submit" value="수정하기" />
+          </div>
+        </form>
+        <form class="delete" action="/delete/<%= comment.id %>" method="post">
+          <div class="form-floating mb-3">
+            <input
+              class="form-control update-content"
+              id="floatingInput"
+              type="password"
+              name="password"
+              placeholder="비밀번호"
+              required
+            />
+            <label for="floatingInput">비밀번호</label>
+          </div>
+          <input class="btn btn-danger" type="submit" value="삭제하기" />
+        </form>
+      </div>
+    </div>
+    <% } %>
+  </ul>
+</section>

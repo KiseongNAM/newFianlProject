@@ -29,6 +29,16 @@ const Commnets = sequelize.define(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    createdAt: {
+      type: "TIMESTAMP",
+      defaultValue: sequelize.literal("CURRENT_TIMESTAMP"),
+      allowNull: false,
+    },
+    updatedAt: {
+      type: "TIMESTAMP",
+      defaultValue: sequelize.literal("CURRENT_TIMESTAMP"),
+      allowNull: false,
+    },
   },
   {
     // Other model options go here
@@ -49,7 +59,7 @@ app.set("view engine", "ejs");
 // index page
 app.get("/", async function (req, res) {
   const comments = await Commnets.findAll();
-  res.render("main", { comments: comments });
+  res.render("body", { comments: comments });
 });
 
 app.post("/create", async function (req, res) {

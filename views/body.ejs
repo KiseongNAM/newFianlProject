@@ -1,0 +1,22 @@
+<%- include('head') %>
+
+<header class="header-container" onclick="Javascript:location.href='/'">
+  <img src="header.png" alt="백경이" />
+  <h1 id="header-title">백경이네 기념일 계산기</h1>
+</header>
+<main class="main-container">
+  <%- include('navPills') %>
+  <div id="empty-fetch-content">
+    <img src="./fetch.png" alt="" style="max-width: 60%; height: auto" />
+  </div>
+  <%- include('fetchContent') %>
+  <hr />
+
+  <%- include('contentList') %>
+
+  <hr />
+
+  <%- include('createForm') %>
+</main>
+
+<%- include('footer') %>

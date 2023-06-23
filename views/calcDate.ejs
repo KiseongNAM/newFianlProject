@@ -1,0 +1,172 @@
+<section class="main-calc-date">
+  <div class="main-calc-container bg-success bg-opacity-50">
+    <div class="select-date">
+      <h3>우리 만난지 &#128153;</h3>
+      <form class="select-date-container">
+        <input
+          type="date"
+          name="start-date"
+          id="start-date"
+          class="form-control start-date"
+          required
+        />
+        <input
+          class="btn btn-success"
+          type="button"
+          value="선택"
+          onclick="allOnClick('.start-date')"
+        />
+      </form>
+      <p id="accent" class="accent start-date-accent">
+        <span>&#128140;</span>
+      </p>
+    </div>
+
+    <div class="calc-date">
+      <h3>기념일 계산</h3>
+      <div class="input-date form-floating">
+        <input
+          class="item-title input-calc-date1 form-control"
+          id="floatingInput"
+          name="input-calc-date"
+          type="text"
+          placeholder="계산할 일수"
+          onkeyup="calcInputDate('#start-date','.input-calc-date',1)"
+        />
+        <label for="floatingInput">계산할 일수</label>
+        <div class="form-check">
+          <input
+            class="form-check-input item-title date-form-check1"
+            type="checkbox"
+            name="flexCheckDefault"
+            id="flexCheckDefault1"
+            onchange="checkboxGroup(this)"
+            onclick="checkClick(this)"
+          />
+          <label
+            class="form-check-label item-date date-check-label1"
+            id="calc-date-text1"
+            for="flexCheckDefault1"
+          >
+            &#128140;
+          </label>
+        </div>
+      </div>
+
+      <div class="item-form-container">
+        <ul>
+          <li class="item-title">100일</li>
+        </ul>
+        <div class="form-check">
+          <input
+            class="form-check-input item-title date-form-check2"
+            type="checkbox"
+            name="flexCheckDefault"
+            id="flexCheckDefault1"
+            onchange="checkboxGroup(this)"
+            onclick="checkClick(this)"
+          />
+          <label
+            class="form-check-label item-date date-check-label2"
+            id="date100start-date"
+            for="flexCheckDefault1"
+          >
+            &#128140;
+          </label>
+        </div>
+      </div>
+
+      <div class="item-form-container">
+        <ul>
+          <li class="item-title">200일</li>
+        </ul>
+        <div class="form-check">
+          <input
+            class="form-check-input item-title date-form-check3"
+            type="checkbox"
+            name="flexCheckDefault"
+            id="flexCheckDefault1"
+            onchange="checkboxGroup(this)"
+            onclick="checkClick(this)"
+          />
+          <label
+            class="form-check-label item-date date-check-label3"
+            id="date200start-date"
+            for="flexCheckDefault1"
+          >
+            &#128140;
+          </label>
+        </div>
+      </div>
+
+      <div class="item-form-container">
+        <ul>
+          <li class="item-title">1년</li>
+        </ul>
+        <div class="form-check">
+          <input
+            class="form-check-input item-title date-form-check4"
+            type="checkbox"
+            name="flexCheckDefault"
+            id="flexCheckDefault1"
+            onchange="checkboxGroup(this)"
+            onclick="checkClick(this)"
+          />
+          <label
+            class="form-check-label item-date date-check-label4"
+            id="date365start-date"
+            for="flexCheckDefault1"
+          >
+            &#128140;
+          </label>
+        </div>
+      </div>
+
+      <div class="item-form-container">
+        <ul>
+          <li class="item-title">3년</li>
+        </ul>
+        <div class="form-check">
+          <input
+            class="form-check-input item-title date-form-check5"
+            type="checkbox"
+            name="flexCheckDefault"
+            id="flexCheckDefault1"
+            onchange="checkboxGroup(this)"
+            onclick="checkClick(this)"
+          />
+          <label
+            class="form-check-label item-date date-check-label5"
+            id="date1095start-date"
+            for="flexCheckDefault1"
+          >
+            &#128140;
+          </label>
+        </div>
+      </div>
+
+      <div class="item-form-container">
+        <ul>
+          <li class="item-title">5년</li>
+        </ul>
+        <div class="form-check">
+          <input
+            class="form-check-input item-title date-form-check6"
+            type="checkbox"
+            name="flexCheckDefault"
+            id="flexCheckDefault1"
+            onchange="checkboxGroup(this)"
+            onclick="checkClick(this)"
+          />
+          <label
+            class="form-check-label item-date date-check-label6"
+            id="date1825start-date"
+            for="flexCheckDefault1"
+          >
+            &#128140;
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
