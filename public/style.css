@@ -350,3 +350,13 @@ footer {
     padding-right: 8px;
   }
 }
+
+@media (max-width: 375px) {
+  .nav-item {
+    font-size: 0.9rem;
+  }
+
+  #nav-pills {
+    flex-wrap: nowrap;
+  }
+}
